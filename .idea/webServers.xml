@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="de041f7f-1131-4866-a326-90a7606c2771" name="NLP2">
+        <fileTransfer accessType="SFTP" host="nlpgpu2023w-0107.westus.cloudapp.azure.com" port="22" sshConfigId="0fe484b9-24be-49ed-a505-4da24fa66bb8" sshConfig="student@nlpgpu2023w-0107.westus.cloudapp.azure.com:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

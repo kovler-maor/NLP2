@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="NLP2" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="NLP2">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/student/NLP2" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="student@nlpgpu2023w-0107.westus.cloudapp.azure.com:22 password">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/student/NLP2" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>
