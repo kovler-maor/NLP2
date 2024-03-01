@@ -15,6 +15,17 @@ from SVM import SVMModel
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 def main():
+    glove_model_choice = input("""Which GloVe model would you like to use?
+    1. glove-twitter-200
+    2. glove-wiki-gigaword-100
+    3. glove-wiki-gigaword-300
+    please enter the number of the model you would like to use: """)
+    if glove_model_choice == '1':
+        glove_model_path = 'glove_twitter_200.pkl'
+    elif glove_model_choice == '2':
+        glove_model_path = 'glove_6B_100.pkl'
+    elif glove_model_choice == '3':
+        glove_model_path = 'glove_6B_300.pkl'
 
     window_size = int(input("Enter the window size for the NER data set: "))
     run_svm_model_flag = input("Do you want to run the SVM model? (y/n): ")
@@ -25,8 +36,6 @@ def main():
     train_data_path = 'data/train.tagged'
     dev_data_path = 'data/dev.tagged'
 
-    # Load GloVe model
-    glove_model_path = 'glove_model.pkl'
     if os.path.exists(glove_model_path):
         with open(glove_model_path, 'rb') as file:
             glove_model = pickle.load(file)
