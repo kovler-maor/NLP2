@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.optim as optim
 from sklearn.metrics import f1_score, confusion_matrix
 import numpy as np
-
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
 class NER_LSTM(nn.Module):
@@ -25,6 +25,7 @@ class NER_LSTM(nn.Module):
         for epoch in range(epochs):
             total_loss = 0
             for inputs, labels in train_loader:
+                inputs , labels = inputs.to(device), labels.to(device)
                 optimizer.zero_grad()
                 outputs = self(inputs)
                 outputs = outputs.view(-1, outputs.shape[-1])
@@ -41,6 +42,7 @@ class NER_LSTM(nn.Module):
         all_labels = []
         with torch.no_grad():
             for inputs, labels in test_loader:
+                inputs, labels = inputs.to(device), labels.to(device)
                 outputs = self(inputs)
                 outputs = outputs.view(-1, outputs.shape[-1])
                 _, predicted = torch.max(outputs, 1)

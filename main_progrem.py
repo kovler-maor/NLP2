@@ -12,7 +12,7 @@ from FF import NER_FF_NN
 from LSTM import NER_LSTM
 from SVM import SVMModel
 
-
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 def main():
 
@@ -60,7 +60,7 @@ def main():
 
         # Create the model with specified input, hidden, and output sizes
         ff_model = NER_FF_NN(input_size=100, hidden_size=[128, 64], output_size=2)  # Example dimensions, adjust as needed
-
+        ff_model.to(device)
         # Run the model with specified learning rate and epochs
         ff_model.run(train_loader=train_loader, test_loader=test_loader, lr=0.001, epochs=5)
 
@@ -68,6 +68,7 @@ def main():
         # LSTM Model Training and Evaluation
         print("Training and evaluating LSTM model ...")
         lstm_model = NER_LSTM(ner_dataset_nn.vectors.shape[1], 100, 2, 1)
+        lstm_model.to(device)
         lstm_model.run(
             train_loader,
             test_loader,
